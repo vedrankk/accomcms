@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Successefully deleted!' => 'Successefully deleted!',
+    'Something went wrong!' => "Something went wrong!",
+    "has_translation" => "You can't delete a value that has a translation!",
+    'too_much_emails' => "You can't have more than 5 emails!",
+    "There has to be at least one language!" => "There has to be at least one language!",
+    'Language Deleted.' => "Language Deleted.",
+    'Successfully deleted!' => "Successfully deleted!",
+    'Succesefully added!' => "Succesefully added!",
+    'email_invalid' => "Invalid email address!",
+    'Succesefully edited!' => "Succesefully edited!",
+    'select_accom' => 'Select accomodation...',
+    'basic_info' => 'Basic Info',
+    'address' => 'Address',
+    'emails' => 'Emails',
+    'new_mail' => 'Add new Email',
+    'langs' => 'Accomodation languages',
+    'services' => 'Accomodation Services',
+    'no_data_changed' => 'You did not edit anything!',
+    'Edit' => 'Edit {social}',
+    'email_pl' => 'Email...',
+    'title_pl' => 'Title...',
+    'edit_translate' => "You can't edit a translated value!",
+];

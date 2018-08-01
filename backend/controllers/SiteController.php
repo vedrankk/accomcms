@@ -6,6 +6,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use app\models\User;
+use yii\helpers\Url;
 
 /**
  * Site controller
@@ -75,8 +77,13 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->login()) {
+                return $this->redirect('');
+            } else {
+                Yii::$app->session->setFlash('error', 'Invalid login details.');
+            }
+            return $this->refresh();
         } else {
             return $this->render('login', [
                 'model' => $model,

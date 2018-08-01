@@ -10,8 +10,12 @@ use yii\web\IdentityInterface;
 /**
  * User model
  *
- * @property integer $id
- * @property string $username
+ * @property integer $user_id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $admin_user
+ * @property string $country
+ * @property string $lang
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -26,6 +30,11 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'admin';
+    const ROLE_SUPERADMIN = 'superadmin';
+
+
 
     /**
      * @inheritdoc
@@ -34,7 +43,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return '{{%user}}';
     }
-
+    
     /**
      * @inheritdoc
      */
@@ -53,6 +62,41 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['first_name', 'last_name', 'country', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
+            [['role', 'lang'], 'string'],
+            [['status', 'created_at', 'updated_at'], 'integer'],
+            [['first_name', 'last_name', 'country', 'lang', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
+            [['auth_key'], 'string', 'max' => 32],
+            [['email'], 'unique'],
+            [['email'], 'email'],
+            [['password_reset_token'], 'unique'],
+        ];
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['adminUpdate'] = ['first_name', 'last_name', 'country', 'lang'];
+        $scenarios['userUpdate'] = ['first_name', 'last_name', 'country', 'lang', 'email'];
+        return $scenarios;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'user_id' => Yii::t('model/user', 'user_id'),
+            'first_name' => Yii::t('model/user', 'first_name'),
+            'last_name' => Yii::t('model/user', 'last_name'),
+            'role' => Yii::t('model/user', 'role'),
+            'country' => Yii::t('model/user', 'country'),
+            'lang' => Yii::t('model/user', 'lang'),
+            'auth_key' => Yii::t('model/user', 'auth_key'),
+            'password_hash' => Yii::t('model/user', 'password_hash'),
+            'password_reset_token' => Yii::t('model/user', 'password_reset_token'),
+            'email' => Yii::t('model/user', 'email'),
+            'status' => Yii::t('model/user', 'status'),
+            'created_at' => Yii::t('model/user', 'created_at'),
+            'updated_at' => Yii::t('model/user', 'updated_at'),
         ];
     }
 
@@ -61,7 +105,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['user_id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -73,14 +117,14 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by username
+     * Finds user by email
      *
-     * @param string $username
+     * @param string $email
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByEmail($email)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

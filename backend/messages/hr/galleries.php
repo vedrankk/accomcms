@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'Title' => 'Galerije',
+    'gallery_id' => 'ID Galerije',
+    'accom_id' => 'ID smještaja',
+    'lang_id' => 'Jezik',
+    'parent_id' => 'Original', 
+    'name' => 'Ime galerije',
+    'desc' => 'Opis galerije',
+    'all_galleries' => 'Sve galerije smještaja',
+    'actions' => 'Akcije',
+    'delete_g' => 'Obrišite galeriju',
+    'view_g' => 'Sve galerije',
+    'confirm' => 'Da li ste sigurni?',
+    'confirm_message' => "Želite da obrišete ovu galeriju? Nakon toga je ne možete vratiti!",
+    'type_delete' => 'Ukucajte DELETE ovdje...',
+    'upload_m' => 'Dodajte slike u: {name}',
+    'add_files' => 'Dodaj fajl',
+    'start_upload' => 'Počni upload',
+    'cancel_upload' => 'Otkaži upload',
+    'delete' => 'Obriši',
+    'cancel' => 'Otkaži',
+    'proccessing' => 'Obrada...',
+    'error' => 'Greška',
+    'start' => 'Počni',
+    'invalid_extension' => 'Izvnite samo JPG, JPEG, PNG i GIF slike su dozvoljene.',
+    'file_exists' => 'Slika s ovim imenom već postoji!',
+    'upload_error' => 'Grješka pri uploadu slike!',
+    'no_galleries' => 'Ovaj smještaj nema aktivnih galerija!',
+    'gallery_not_exist' => 'Ne postoji galerija s ovim ID-om'
+];

@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'Title' => 'Templates',
+    'template_id' => 'Template ID',
+    'lang_id' => 'Language',
+    'parent_id' => 'Parent',
+    'name' => 'Name',
+    'description' => 'Description',
+    'path' => 'Directory Path',
+    'user_id' => 'User',
+    'version' => 'Latest version',
+    'internal_error' => 'There was an internal error. Please try again. Error code: {error_code}',
+    'ini_settings_missing' => 'Please add the needed settings to the ini file. <b>temp_name</b> , <b>temp_desc</b> or <b>temp_version</b> missing.',
+    'version_invalid' => 'Version invalid. You are trying to upload an older version, or the version format is invalid\n It has to be A.B.C or A,B,C. Error code: {error_code}',
+    'zip_type_invalid' => 'The type of the file is not valid. Please upload .zip file. Error code: {error_code}',
+    'zip_exists' => 'A file with this name already exists. Please try to upload with different name. Error code: {error_code}',
+    'name_exists' => 'A template with this name already exists. Please try to come up with a different one. Error code: {error_code}',
+    'upload_process' => 'Upload success. Proccessing...',
+    'zip_upload_error' => 'There was an error while uploading. Please try again. Error code: {error_code}',
+    'update_success' => 'Template updated!',
+    'name_mismatch' => "You can't change the name of the template! Error code: {error_code}",
+    'invalid_files' => 'There was one or more files that were not allowed. Please check your archive and upload again.<br> If you think there is a mistake, contact the admins at *email*',
+    'ini_missing' => 'You need to have an .ini file in your template',
+    'unzip_success' => 'Files unzipped successefully!',
+    'dir_not_writable' => 'Error: Directory not writeable by webserver.',
+    'zip_unreadable' => 'Error: Cannot read .zip archive. Error code: {error_code}',
+    'unknown_format' => 'The file is either invalid or an unsupported archive.\n Please upload in .zip, format',
+    ''
+];

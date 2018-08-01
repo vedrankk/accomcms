@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Successefully deleted!' => 'Uspešno obrisano!',
+    'Something went wrong!' => "Došlo je do greške. Pokušajte ponovo!",
+    "has_translation" => "Ne možete obrisati vrednost za koji postoji prevod!",
+    'too_much_emails' => "Ne možete uneti više pet mejlova!",
+    "There has to be at least one language!" => "Mora postojati barem jedan jezik!",
+    'Language Deleted.' => "Jezik obrisan",
+    'Successfully deleted!' => "Uspešno obrisano!",
+    'Succesefully added!' => "Uspešno dodano!",
+    'email_invalid' => "E-mail adresa koju ste uneli nije validna!",
+    'Succesefully edited!' => "Uspešno izmenjeno!",
+    'select_accom' => 'Izaberite smeštaj...',
+    'basic_info' => 'Osnovne informacije',
+    'address' => 'Adresa',
+    'emails' => "E-mejlovi",
+    'new_mail' => 'Novi Email',
+    'langs' => 'Jezici smeštaja',
+    'services' => 'Usluge smeštaja',
+    'no_data_changed' => 'Niste napravili nijednu izmenu',
+    'Edit' => 'Izmjenite {social}',
+    'email_pl' => 'Email...',
+    'title_pl' => 'Naslov...',
+    'edit_translate' => "Ne možete izmeniti prevedenu vrednost!",
+];

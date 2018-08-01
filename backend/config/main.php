@@ -13,18 +13,47 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+         'i18n' => [
+        'translations' => [
+            'app*' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@app/messages',
+                'sourceLanguage' => 'en-US',
+                'fileMap' => [
+                    'app' => 'app.php',
+                    'app/error' => 'error.php',
+                ],
+            ],
+            'model*' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@app/messages',
+                'sourceLanguage' => 'en-US',
+                'fileMap' => [
+                    'model/languageswebsite' =>  'languageswebsite.php',
+                    'model/languagesdb' => 'languagesdb.php',
+                    'model/services' => 'services.php',
+                    'model/accomodation' => 'accomodation.php',
+                    'model/emails' => 'emails.php',
+                    'model/accomservices' => 'accomservices.php',
+                    'model/accomlanguages' => 'accomlanguages.php',
+                    'model/overview' => 'overview.php',
+                    'model/galleries' => 'galleries.php',
+                    'model/accomnews' => 'accomnews.php',
+                    'model/templates' => 'templates.php',
+                    'model/accomtemplates' => 'accomtemplates.php',
+                    'model/accomdomain' => 'accomdomain.php',
+                    'model/domains' => 'domains.php',
+                    'model/user' => 'user.php',
+                    'model/index' => 'start.php',
+                ],
+              'on missingTranslation' => ['backend\components\TranslationEventHandler', 'handleMissingTranslation']
+            ],
+        ],
+    ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
-        'session' => [
-            // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
-        ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -37,14 +66,30 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+
+         'urlManager' => [
+                'class' => 'backend\components\UrlManagerBackend',
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'enableStrictParsing' => false,
+                'rules' => [
+                    'users' => 'user/index',
+                    'users/profile' => 'user/profile',
+                    'users/<id:\d+>' => 'user/view',
+                    'users/settings' => 'user/settings',
+                    'users/update/<id:\d+>' => 'user/update',
             ],
         ],
-        */
+        'view' => [
+            'renderers' => [
+                'tpl' => [
+                    'class' => 'yii\smarty\ViewRenderer',
+                    //'cachePath' => '@runtime/Smarty/cache',
+                ],
+            ],
+        ],
+        
+ 
     ],
     'params' => $params,
 ];

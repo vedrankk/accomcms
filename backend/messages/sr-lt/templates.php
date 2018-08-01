@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'Title' => 'Šabloni',
+    'template_id' => 'ID Šablona',
+    'lang_id' => 'Jezik',
+    'parent_id' => 'Original',
+    'name' => 'Ime',
+    'description' => 'Opis',
+    'path' => 'Put do direktorijuma',
+    'user_id' => 'Korisnik',
+    'version' => 'Najnovija verzija',
+    'internal_error' => 'Desila se greška pri obradi. Molimo vas pokušajte ponovo. Kod greške: {error_code}',
+    'ini_settings_missing' => 'Molimo vas dodajte sva potrebna podešavanja u .ini fajl. <b>temp_name</b> , <b>temp_desc</b> ili <b>temp_version</b> nedostaje.',
+    'version_invalid' => 'Pogrešna verzija. Pokušavate uneti stariju verziju ili format verzije nije tačan.\n Format mora biti  A.B.C or A,B,C. Kod greške: {error_code}',
+    'zip_type_invalid' => 'Tip fajla nije validan. Molimo vas unesite .zip fajl. Kod greške: {error_code}',
+    'zip_exists' => 'Fajl s ovim imenom već postoji. Molimo vas pokušajte uneti pod drugim imenom. Kod greške: {error_code}',
+    'name_exists' => 'Šablon s ovim imenom več postoji. Molimo vas smislite drugo ime i pokušajte ponovo. Kod greške: {error_code}',
+    'upload_process' => 'Upload fajla uspeo. Obradađuje se...',
+    'zip_upload_error' => 'Desila se greška prilikom uploada fajla. Molimo vas pokušajte ponovo. Kod greške: {error_code}',
+    'update_success' => 'Šablon izmenjen!',
+    'name_mismatch' => "Ne možete menjati ime šablona! Kod greške: {error_code}",
+    'invalid_files' => 'Jedan ili više fajlova imaju nedozvoljene ekstenzije. Molimo proverite vašu arhivu i pokušajte ponovo.<br> Ako mislite da postoji greška kod nas, kontaktirajte admine na *email*',
+    'ini_missing' => 'Morate imati settings.ini fajl u vašoj arhivi.',
+    'unzip_success' => 'Arhiva uspešno otpakovana!',
+    'dir_not_writable' => 'Greška: Nije moguće pisati u direktorijum.',
+    'zip_unreadable' => 'Greška. ZIP arhiva se ne može pročitati. Molimo vas pokušajte ponovo.\n Ako se nastavi, kontaktirajte admine. Kod greške: {error_code}',
+    'unknown_format' => 'Fajl je nedozvoljen ili je arhiva koju ne podržavamo.\n Molimo radite upload u .zip, formatu',
+    ''
+];
